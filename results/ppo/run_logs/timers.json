@@ -1,0 +1,47 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1623576863",
+        "python_version": "3.9.5 (tags/v3.9.5:0a7dcbd, May  3 2021, 17:27:52) [MSC v.1928 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\ensar\\ML-test\\venv\\Scripts\\mlagents-learn",
+        "mlagents_version": "0.27.0",
+        "mlagents_envs_version": "0.27.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.7.1+cpu",
+        "numpy_version": "1.20.3",
+        "end_time_seconds": "1623576879"
+    },
+    "total": 15.3654788,
+    "count": 1,
+    "self": 0.01583290000000126,
+    "children": {
+        "run_training.setup": {
+            "total": 0.1745171000000001,
+            "count": 1,
+            "self": 0.1745171000000001
+        },
+        "TrainerController.start_learning": {
+            "total": 15.1751288,
+            "count": 1,
+            "self": 0.0014176999999975237,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 15.1736577,
+                    "count": 1,
+                    "self": 15.1736577
+                },
+                "trainer_threads": {
+                    "total": 4.300000000512227e-06,
+                    "count": 1,
+                    "self": 4.300000000512227e-06
+                },
+                "TrainerController._save_models": {
+                    "total": 4.910000000180048e-05,
+                    "count": 1,
+                    "self": 4.910000000180048e-05
+                }
+            }
+        }
+    }
+}
