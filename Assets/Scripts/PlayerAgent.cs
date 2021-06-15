@@ -12,11 +12,14 @@ public class PlayerAgent : Agent
     [SerializeField] private Collider2D ownGoal;
     [SerializeField] private Collider2D enemyGoal;
     [SerializeField] private Transform enemyTransform;
-    private PlayerMovement pm;
 
     private void Start()
     {
-        pm = gameObject.GetComponent<PlayerMovement>();
+        transform.position = new Vector3(-5, -6,0);
+    }
+    public override void OnEpisodeBegin()
+    {
+        transform.position = new Vector3(-5, -6, 0);
     }
     public override void CollectObservations(VectorSensor sensor)
     {
@@ -27,8 +30,10 @@ public class PlayerAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        Debug.Log(actions.ContinuousActions);
-        pm.movePlayerAgent(new Vector2(actions.ContinuousActions[0], actions.ContinuousActions[1]));
+        float moveX = actions.ContinuousActions[0] * 2f;
+        float moveY = actions.ContinuousActions[1] * 2f;
+        float moveSpeed = 1f;
+        transform.position += new Vector3(moveX, moveY, 0) * Time.deltaTime * moveSpeed;
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
@@ -40,5 +45,20 @@ public class PlayerAgent : Agent
             continousActions[0] = mousePos.x;
             continousActions[1] = mousePos.y;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.gameObject.tag);
+        if (collision.gameObject.tag == "puck")
+        {
+            AddReward(2f);
+            EndEpisode();
+        }
+        else if(collision.gameObject.tag == "border")
+        {
+            AddReward(-1f);
+        }
+
     }
 }

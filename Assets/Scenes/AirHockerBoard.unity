@@ -206,6 +206,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &926169096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1850452967360401875, guid: ac2eaf808c42ced4193027397428040e, type: 3}
+  m_PrefabInstance: {fileID: 8957529060793913696}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &926169098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926169096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 5
+  TakeActionsBetweenDecisions: 1
 --- !u!1001 &8957529060793913696
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -261,5 +280,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: Board
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7607478002967627951, guid: ac2eaf808c42ced4193027397428040e, type: 3}
+      propertyPath: m_TagString
+      value: me
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957529060437514556, guid: ac2eaf808c42ced4193027397428040e, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957529060437514559, guid: ac2eaf808c42ced4193027397428040e, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957529060894013398, guid: ac2eaf808c42ced4193027397428040e, type: 3}
+      propertyPath: m_TagString
+      value: border
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 7681356482117453040, guid: ac2eaf808c42ced4193027397428040e, type: 3}
+    - {fileID: 1919862607736413580, guid: ac2eaf808c42ced4193027397428040e, type: 3}
+    - {fileID: 6818700018398053852, guid: ac2eaf808c42ced4193027397428040e, type: 3}
+    - {fileID: 4829223211933183992, guid: ac2eaf808c42ced4193027397428040e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ac2eaf808c42ced4193027397428040e, type: 3}

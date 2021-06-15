@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - puck
+  - me
+  - border
   layers:
   - Default
   - TransparentFX
