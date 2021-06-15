@@ -38,27 +38,9 @@ public class PlayerMovement : MonoBehaviour
                 }
 
                 rb.MovePosition(nPos);
-
             }
         }
-        else
-        {
-            wasJustClicked = true;
-        }
-
+        else wasJustClicked = true;
     }
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-    //    Vector2 pos = transform.position;
-    //    if (collision.Equals(border))
-    //    {
-    //        pos = transform.position;
-    //        if (pos.x > border.bounds.max.x || pos.x < border.bounds.min.x || pos.y > border.bounds.max.y || pos.y < border.bounds.min.y)
-    //        {
-    //            pos.x = Mathf.Clamp(pos.x, border.bounds.min.x, border.bounds.max.x);
-    //            pos.y = Mathf.Clamp(pos.y, border.bounds.min.y, border.bounds.max.y);
-    //            rb.transform.position = pos;
-    //        }
-    //    }
-    //}
+
 }
