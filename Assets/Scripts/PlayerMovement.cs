@@ -51,7 +51,7 @@ public class PlayerMovement : MonoBehaviour
     public void movePlayerAgent(Vector2 mousePos)
     {
         Vector2 pos = transform.position;
-        Vector2 nPos = pos + ((mousePos - pos) * Time.deltaTime * maxSpeed);
+        Vector2 nPos = (pos + mousePos) * Time.deltaTime * maxSpeed;
         if (nPos.x > playArea.bounds.max.x || nPos.x < playArea.bounds.min.x || nPos.y > playArea.bounds.max.y || nPos.y < playArea.bounds.min.y)
         {
             nPos.x = Mathf.Clamp(nPos.x, playArea.bounds.min.x, playArea.bounds.max.x);
