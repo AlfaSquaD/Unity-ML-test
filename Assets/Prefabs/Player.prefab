@@ -136,7 +136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   border: {fileID: 0}
+  playArea: {fileID: 0}
   maxSpeed: 20
+  mousePosOffset: 1.43
 --- !u!114 &4441294075244861043
 MonoBehaviour:
   m_ObjectHideFlags: 0

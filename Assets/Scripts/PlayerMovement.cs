@@ -5,14 +5,12 @@ public class PlayerMovement : MonoBehaviour
 
     bool wasJustClicked = true;
     bool canMove;
-    Vector2 playerSize;
-    public Collider2D border;
+    public Collider2D playArea;
     public float maxSpeed;
     Rigidbody2D rb;
     // Use this for initialization
     void Start()
     {
-        playerSize = GetComponent<SpriteRenderer>().bounds.extents;
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -20,40 +18,27 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        mousePos.x = Mathf.Clamp(mousePos.x, border.bounds.min.x, border.bounds.max.x);
-        mousePos.y = Mathf.Clamp(mousePos.y, border.bounds.min.y, border.bounds.max.y);
+        RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
         if (Input.GetMouseButton(0))
         {
-
             if (wasJustClicked)
             {
                 wasJustClicked = false;
-
-                if ((mousePos.x >= transform.position.x && mousePos.x < transform.position.x + playerSize.x ||
-                mousePos.x <= transform.position.x && mousePos.x > transform.position.x - playerSize.x) &&
-                (mousePos.y >= transform.position.y && mousePos.y < transform.position.y + playerSize.y ||
-                mousePos.y <= transform.position.y && mousePos.y > transform.position.y - playerSize.y))
-                {
-                    canMove = true;
-                }
-                else
-                {
-                    canMove = false;
-                }
+                canMove = playArea.Equals(hit.collider);
             }
 
             if (canMove)
             {
                 Vector2 pos = transform.position;
-                rb.MovePosition(pos + ((mousePos - pos) * Time.deltaTime * maxSpeed));
-                pos = transform.position;
-                if(pos.x > border.bounds.max.x || pos.x < border.bounds.min.x || pos.y > border.bounds.max.y || pos.y < border.bounds.min.y)
+                Vector2 nPos = pos + ((mousePos - pos) * Time.deltaTime * maxSpeed);
+                if (nPos.x > playArea.bounds.max.x || nPos.x < playArea.bounds.min.x || nPos.y > playArea.bounds.max.y || nPos.y < playArea.bounds.min.y)
                 {
-                    pos.x = Mathf.Clamp(pos.x, border.bounds.min.x, border.bounds.max.x);
-                    pos.y = Mathf.Clamp(pos.y, border.bounds.min.y, border.bounds.max.y);
-                    rb.transform.position = pos;
+                    nPos.x = Mathf.Clamp(nPos.x, playArea.bounds.min.x, playArea.bounds.max.x);
+                    nPos.y = Mathf.Clamp(nPos.y, playArea.bounds.min.y, playArea.bounds.max.y);
                 }
-                
+
+                rb.MovePosition(nPos);
+
             }
         }
         else
