@@ -12,8 +12,11 @@ GameObject:
   - component: {fileID: 4521815490043701601}
   - component: {fileID: 8389719220392190552}
   - component: {fileID: 1440150343157952740}
+  - component: {fileID: 2517348033225891000}
   - component: {fileID: -5791772093691364536}
   - component: {fileID: 4441294075244861043}
+  - component: {fileID: 4560829018663614108}
+  - component: {fileID: 1645538160603864468}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -123,6 +126,26 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
+--- !u!114 &2517348033225891000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575338241700008395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1f21f5f3f086e94b91cc1b9e5af611b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  agentParameters:
+    maxStep: 0
+  hasUpgradedFromAgentParameters: 1
+  MaxStep: 0
+  ballTransform: {fileID: 0}
+  ownGoal: {fileID: 0}
+  enemyGoal: {fileID: 0}
+  enemyTransform: {fileID: 0}
 --- !u!114 &-5791772093691364536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,6 +172,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e39e41254a2015428d14a604c55dda7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ownGoal: {fileID: 0}
-  enemyGoal: {fileID: 0}
   sprite: {fileID: 21300000, guid: 82aeae2285e4a8f44a4920ec7391d866, type: 3}
+--- !u!114 &4560829018663614108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575338241700008395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d1c4e0b1822b495aa52bc52839ecb30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_BrainParameters:
+    VectorObservationSize: 1
+    NumStackedVectorObservations: 1
+    m_ActionSpec:
+      m_NumContinuousActions: 2
+      BranchSizes: 
+    VectorActionSize: 02000000
+    VectorActionDescriptions: []
+    VectorActionSpaceType: 1
+    hasUpgradedBrainParametersWithActionSpec: 1
+  m_Model: {fileID: 0}
+  m_InferenceDevice: 0
+  m_BehaviorType: 0
+  m_BehaviorName: My Behavior
+  TeamId: 0
+  m_UseChildSensors: 1
+  m_UseChildActuators: 1
+  m_ObservableAttributeHandling: 0
+--- !u!114 &1645538160603864468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1575338241700008395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DecisionPeriod: 5
+  TakeActionsBetweenDecisions: 1

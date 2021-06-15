@@ -777,6 +777,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: P2
       objectReference: {fileID: 0}
+    - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: MaxStep
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: ownGoal
+      value: 
+      objectReference: {fileID: 3403587703177796322}
+    - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: enemyGoal
+      value: 
+      objectReference: {fileID: 4296837565082786383}
+    - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: ballTransform
+      value: 
+      objectReference: {fileID: 8957529060437514558}
+    - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: enemyTransform
+      value: 
+      objectReference: {fileID: 3708715744918740138}
     - target: {fileID: 4441294075244861043, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: ownGoal
       value: 
@@ -785,13 +805,25 @@ PrefabInstance:
       propertyPath: enemyGoal
       value: 
       objectReference: {fileID: 4296837565082786383}
+    - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: TeamId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5708181045021656526, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5708181045021656526, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.02
+      value: -5.27
       objectReference: {fileID: 0}
     - target: {fileID: 5708181045021656526, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_LocalPosition.y
@@ -993,6 +1025,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: P1
       objectReference: {fileID: 0}
+    - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: ownGoal
+      value: 
+      objectReference: {fileID: 4296837565082786383}
+    - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: enemyGoal
+      value: 
+      objectReference: {fileID: 3403587703177796322}
+    - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: ballTransform
+      value: 
+      objectReference: {fileID: 8957529060437514558}
+    - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: enemyTransform
+      value: 
+      objectReference: {fileID: 4847298756521608662}
     - target: {fileID: 4441294075244861043, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: sprite
       value: 
@@ -1005,13 +1053,21 @@ PrefabInstance:
       propertyPath: enemyGoal
       value: 
       objectReference: {fileID: 3403587703177796322}
+    - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: m_InferenceDevice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: m_BrainParameters.VectorObservationSize
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 5708181045021656526, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5708181045021656526, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.68
+      value: -5.27
       objectReference: {fileID: 0}
     - target: {fileID: 5708181045021656526, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_LocalPosition.y
