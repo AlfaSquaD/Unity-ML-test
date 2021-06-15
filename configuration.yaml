@@ -1,6 +1,6 @@
 default_settings: null
 behaviors:
-  My Behavior:
+  PlayerAgent:
     trainer_type: ppo
     hyperparameters:
       batch_size: 1024
@@ -36,7 +36,13 @@ behaviors:
     time_horizon: 64
     summary_freq: 50000
     threaded: false
-    self_play: true
+    self_play: 
+      save_steps: 2000
+      team_change: 10000
+      swap_steps: 1000
+      window: 20
+      play_against_latest_model_ratio: 0.5
+      initial_elo: 1200.0
     behavioral_cloning: null
 env_settings:
   env_path: null
@@ -54,7 +60,7 @@ engine_settings:
   no_graphics: false
 environment_parameters: null
 checkpoint_settings:
-  run_id: ppo
+  run_id: test1
   initialize_from: null
   load_model: false
   resume: false
@@ -63,5 +69,5 @@ checkpoint_settings:
   inference: false
   results_dir: results
 torch_settings:
-  device: null
+  device: cuda
 debug: false

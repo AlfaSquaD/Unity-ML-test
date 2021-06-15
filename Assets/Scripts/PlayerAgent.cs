@@ -7,58 +7,68 @@ using Unity.MLAgents.Actuators;
 
 public class PlayerAgent : Agent
 {
-
-    [SerializeField] private Transform ballTransform;
+    [SerializeField] private int direction;
+    [SerializeField] private GameObject puck;
     [SerializeField] private Collider2D ownGoal;
     [SerializeField] private Collider2D enemyGoal;
     [SerializeField] private Transform enemyTransform;
+    [SerializeField] private float agentSpeed;
+    private PlayerMovement playerMovement;
+    private Vector2 startPos;
+    private Vector2 puckStart;
 
-    private void Start()
+    public override void Initialize()
     {
-        transform.position = new Vector3(-5, -6,0);
+        startPos = gameObject.transform.localPosition;
+        puckStart = puck.transform.localPosition;
+        playerMovement = gameObject.GetComponent<PlayerMovement>();
     }
+
     public override void OnEpisodeBegin()
     {
-        transform.position = new Vector3(-5, -6, 0);
+        transform.localPosition = startPos;
+        puck.transform.localPosition = puckStart;
     }
+
     public override void CollectObservations(VectorSensor sensor)
     {
-        sensor.AddObservation(ballTransform.localPosition);
+        sensor.AddObservation(puck.transform.localPosition);
         sensor.AddObservation(gameObject.transform.localPosition);
         sensor.AddObservation(enemyTransform.localPosition);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        float moveX = actions.ContinuousActions[0] * 2f;
-        float moveY = actions.ContinuousActions[1] * 2f;
-        float moveSpeed = 1f;
-        transform.position += new Vector3(moveX, moveY, 0) * Time.deltaTime * moveSpeed;
+        float moveX = Mathf.Clamp01(actions.ContinuousActions[0]);
+        float moveY = Mathf.Clamp01(actions.ContinuousActions[1]);
+        Vector2 pos = transform.localPosition;
+        Vector2 nPos = pos + (new Vector2(moveX, moveY) * Time.deltaTime * (agentSpeed * Mathf.Clamp01(actions.ContinuousActions[2])));
+        if (nPos.x > playerMovement.playArea.bounds.max.x || nPos.x < playerMovement.playArea.bounds.min.x || nPos.y > playerMovement.playArea.bounds.max.y || nPos.y < playerMovement.playArea.bounds.min.y)
+        {
+            nPos.x = Mathf.Clamp(nPos.x, playerMovement.playArea.bounds.min.x, playerMovement.playArea.bounds.max.x);
+            nPos.y = Mathf.Clamp(nPos.y, playerMovement.playArea.bounds.min.y, playerMovement.playArea.bounds.max.y);
+        }
+        nPos = transform.TransformPoint(new Vector3(nPos.x, nPos.y));
+        playerMovement.rb.MovePosition(nPos);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         ActionSegment<float> continousActions = actionsOut.ContinuousActions;
-        if (Input.GetMouseButton(0))
-        {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            continousActions[0] = mousePos.x;
-            continousActions[1] = mousePos.y;
-        }
+        continousActions[0] = Input.GetAxis("Vertical");
+        continousActions[1] = Input.GetAxis("Horizontal");
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log(collision.gameObject.tag);
-        if (collision.gameObject.tag == "puck")
-        {
-            AddReward(2f);
-            EndEpisode();
-        }
-        else if(collision.gameObject.tag == "border")
-        {
-            AddReward(-1f);
-        }
 
+    public void halfAreaPunisment()
+    {
+        AddReward(-0.1f);
+    }
+
+    public void goalReward()
+    {
+        Debug.Log("Goalllll!!");
+        SetReward(1f);
+        EndEpisode();
     }
 }
