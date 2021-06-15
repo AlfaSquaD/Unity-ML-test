@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257745227}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.0559113, y: 1.2864833, z: -1.1122757}
+  m_LocalPosition: {x: -2.0559113, y: 1.2864833, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1722877888}
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 8957529060437514557}
   - component: {fileID: 8957529060437514556}
   - component: {fileID: 8957529060437514559}
-  - component: {fileID: 2033857661}
+  - component: {fileID: 1466675208}
   m_Layer: 0
   m_Name: Puck
   m_TagString: puck
@@ -459,7 +459,7 @@ Rigidbody2D:
   m_SleepingMode: 0
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &2033857661
+--- !u!114 &1466675208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -468,7 +468,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8957529060437514555}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90290a791ef2ab14c879c8e3bd1ea30b, type: 3}
+  m_Script: {fileID: 11500000, guid: 4061d657a69da224eb88ff245332158b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   border: {fileID: 8227784752381255806}
