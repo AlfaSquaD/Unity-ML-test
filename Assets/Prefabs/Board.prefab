@@ -256,6 +256,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!1 &2050638081855236936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1511603433980065202}
+  - component: {fileID: 7993145825262627977}
+  m_Layer: 0
+  m_Name: Barrier
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1511603433980065202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050638081855236936}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.2, y: 2.7, z: -1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5541332824028529363}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &7993145825262627977
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050638081855236936}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.1, y: 0.09}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 14.382724, y: 0.06}
+  m_EdgeRadius: 0
 --- !u!1 &6213670826134566335
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,6 +348,7 @@ Transform:
   - {fileID: 8752920883809750260}
   - {fileID: 7917901194067479641}
   - {fileID: 1257745228}
+  - {fileID: 1511603433980065202}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -491,6 +549,7 @@ MonoBehaviour:
   P2PlayArea: {fileID: 2101317795}
   P1Goal: {fileID: 4296837565082786383}
   P2Goal: {fileID: 3403587703177796322}
+  barrier: {fileID: 7993145825262627977}
   border: {fileID: 8227784752381255806}
 --- !u!1 &8957529060894013398
 GameObject:
@@ -850,8 +909,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSpaceType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]
@@ -954,6 +1021,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3403587703177796322}
     - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: agentSpeed
       value: 30
       objectReference: {fileID: 0}
@@ -966,12 +1037,24 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 18f672637aeb6e4468e85f1fc952715a, type: 3}
     - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: TeamId
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_InferenceDevice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSpaceType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_BrainParameters.VectorObservationSize
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
+      propertyPath: m_BrainParameters.VectorActionSize.Array.size
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_BrainParameters.VectorActionSize.Array.data[0]

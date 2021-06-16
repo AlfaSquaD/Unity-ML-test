@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (canMove)
         {
-            Vector2 pos = transform.localPosition;
+            Vector2 pos = transform.position;
             Vector2 nPos = pos + ((mousePos - pos) * Time.deltaTime * maxSpeed);
             if (nPos.x > playArea.bounds.max.x || nPos.x < playArea.bounds.min.x || nPos.y > playArea.bounds.max.y || nPos.y < playArea.bounds.min.y)
             {

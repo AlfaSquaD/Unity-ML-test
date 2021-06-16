@@ -41,16 +41,11 @@ public class PlayerAgent : Agent
     {
         float moveX = Mathf.Clamp01(actions.ContinuousActions[0]);
         float moveY = Mathf.Clamp01(actions.ContinuousActions[1]);
-        Vector2 pos = transform.localPosition;
+        Vector2 pos = transform.position;
         Vector2 nPos = pos + (new Vector2(moveX, moveY) * Time.deltaTime * (agentSpeed * Mathf.Clamp01(actions.ContinuousActions[2])));
-        if (nPos.x > playerMovement.playArea.bounds.max.x || nPos.x < playerMovement.playArea.bounds.min.x || nPos.y > playerMovement.playArea.bounds.max.y || nPos.y < playerMovement.playArea.bounds.min.y)
-        {
-            nPos.x = Mathf.Clamp(nPos.x, playerMovement.playArea.bounds.min.x, playerMovement.playArea.bounds.max.x);
-            nPos.y = Mathf.Clamp(nPos.y, playerMovement.playArea.bounds.min.y, playerMovement.playArea.bounds.max.y);
-        }
-        nPos = transform.TransformPoint(new Vector3(nPos.x, nPos.y));
         playerMovement.rb.MovePosition(nPos);
     }
+
 
     public override void Heuristic(in ActionBuffers actionsOut)
     {
@@ -62,7 +57,16 @@ public class PlayerAgent : Agent
 
     public void halfAreaPunisment()
     {
-        AddReward(-0.1f);
+        AddReward(0);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("puck"))
+        {
+            SetReward(1f);
+            EndEpisode();
+        }
     }
 
     public void goalReward()

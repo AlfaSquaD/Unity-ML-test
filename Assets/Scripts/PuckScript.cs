@@ -10,6 +10,7 @@ public class PuckScript : MonoBehaviour
     [SerializeField] Collider2D P2PlayArea;
     [SerializeField] Collider2D P1Goal;
     [SerializeField] Collider2D P2Goal;
+    [SerializeField] Collider2D barrier;
     private PlayerAgent p1Agent;
     private PlayerAgent p2Agent;
     public Collider2D border;
@@ -22,6 +23,7 @@ public class PuckScript : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         p1Agent = P1.GetComponent<PlayerAgent>();
         p2Agent = P2.GetComponent<PlayerAgent>();
+        Physics2D.IgnoreCollision(barrier, GetComponent<CircleCollider2D>());
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -34,8 +36,7 @@ public class PuckScript : MonoBehaviour
             rb.MovePosition(pos);
             if(collisions.Count != 0)
                 rb.velocity = Vector2.Reflect(rb.velocity, collisions[0].GetContact(0).normal);
-            else rb.velocity = Vector2.Reflect(rb.velocity, Vector2.up);
-            
+            else rb.velocity = Vector2.Reflect(rb.velocity, Vector2.up);        
         }
     }
 

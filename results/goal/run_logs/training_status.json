@@ -1,24 +1,24 @@
 {
     "PlayerAgent": {
-        "elo": 1200.0,
+        "elo": 1200.097874829452,
         "checkpoints": [
             {
-                "steps": 9504,
-                "file_path": "results\\goal\\PlayerAgent\\PlayerAgent-9504.onnx",
-                "reward": -99.86666663487752,
-                "creation_time": 1623790770.0835109,
+                "steps": 91822,
+                "file_path": "results\\goal\\PlayerAgent\\PlayerAgent-91822.onnx",
+                "reward": 0.5272727272727272,
+                "creation_time": 1623863705.474911,
                 "auxillary_file_paths": [
-                    "results\\goal\\PlayerAgent\\PlayerAgent-9504.pt"
+                    "results\\goal\\PlayerAgent\\PlayerAgent-91822.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 9504,
+            "steps": 91822,
             "file_path": "results\\goal\\PlayerAgent.onnx",
-            "reward": -99.86666663487752,
-            "creation_time": 1623790770.0835109,
+            "reward": 0.5272727272727272,
+            "creation_time": 1623863705.474911,
             "auxillary_file_paths": [
-                "results\\goal\\PlayerAgent\\PlayerAgent-9504.pt"
+                "results\\goal\\PlayerAgent\\PlayerAgent-91822.pt"
             ]
         }
     },

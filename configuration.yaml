@@ -68,6 +68,6 @@ checkpoint_settings:
   train_model: false
   inference: false
   results_dir: results
+debug: false
 torch_settings:
   device: cuda
-debug: false
