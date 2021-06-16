@@ -76,9 +76,11 @@ public class PuckScript : MonoBehaviour
 
     public void setRandomPos()
     {
-        Vector2 pos = transform.localPosition;
-        pos.x += Random.Range(-border.bounds.extents.x, border.bounds.extents.x);
-        pos.y += Random.Range(-border.bounds.extents.y, border.bounds.extents.y);
+        float posX = Random.Range(border.bounds.extents.x - 2 * border.bounds.extents.x, border.bounds.extents.x);
+        float posY = Random.Range(border.bounds.extents.y - 2 * border.bounds.extents.y, border.bounds.extents.y);
+        Vector2 pos = new Vector2(posX, posY);
+        //pos.x += Random.Range(-border.bounds.extents.x, border.bounds.extents.x);
+        //pos.y += Random.Range(-border.bounds.extents.y, border.bounds.extents.y);
         Debug.Log(pos);
         transform.localPosition = pos;
     }
