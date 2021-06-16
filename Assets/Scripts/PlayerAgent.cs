@@ -16,7 +16,6 @@ public class PlayerAgent : Agent
     private PlayerMovement playerMovement;
     private PuckScript puckScript;
     private Vector2 startPos;
-    private Vector2 puckStart;
 
     public override void Initialize()
     {
@@ -29,7 +28,7 @@ public class PlayerAgent : Agent
     public override void OnEpisodeBegin()
     {
         transform.localPosition = startPos;
-        puck.transform.localPosition = puckStart;
+        puckScript.setRandomPos();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -59,7 +58,7 @@ public class PlayerAgent : Agent
 
     public void halfAreaPunisment()
     {
-        AddReward(0);
+        AddReward(0f);
     }
 
     public void goalReward()

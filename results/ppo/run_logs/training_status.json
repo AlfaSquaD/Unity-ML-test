@@ -1,23 +1,24 @@
 {
-    "My Behavior": {
+    "PlayerAgent": {
+        "elo": 1200.5,
         "checkpoints": [
             {
-                "steps": 2000,
-                "file_path": "results\\ppo\\My Behavior\\My Behavior-2000.onnx",
-                "reward": -23.4,
-                "creation_time": 1623780016.599587,
+                "steps": 4801,
+                "file_path": "results\\ppo\\PlayerAgent\\PlayerAgent-4801.onnx",
+                "reward": 0.04,
+                "creation_time": 1623871915.8405948,
                 "auxillary_file_paths": [
-                    "results\\ppo\\My Behavior\\My Behavior-2000.pt"
+                    "results\\ppo\\PlayerAgent\\PlayerAgent-4801.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 2000,
-            "file_path": "results\\ppo\\My Behavior.onnx",
-            "reward": -23.4,
-            "creation_time": 1623780016.599587,
+            "steps": 4801,
+            "file_path": "results\\ppo\\PlayerAgent.onnx",
+            "reward": 0.04,
+            "creation_time": 1623871915.8405948,
             "auxillary_file_paths": [
-                "results\\ppo\\My Behavior\\My Behavior-2000.pt"
+                "results\\ppo\\PlayerAgent\\PlayerAgent-4801.pt"
             ]
         }
     },
