@@ -3,22 +3,22 @@
         "elo": 1200.0,
         "checkpoints": [
             {
-                "steps": 14400,
-                "file_path": "results\\ppo\\PlayerAgent\\PlayerAgent-14400.onnx",
+                "steps": 11200,
+                "file_path": "results\\ppo\\PlayerAgent\\PlayerAgent-11200.onnx",
                 "reward": 0.0,
-                "creation_time": 1623872085.0763788,
+                "creation_time": 1623874344.1076722,
                 "auxillary_file_paths": [
-                    "results\\ppo\\PlayerAgent\\PlayerAgent-14400.pt"
+                    "results\\ppo\\PlayerAgent\\PlayerAgent-11200.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 14400,
+            "steps": 11200,
             "file_path": "results\\ppo\\PlayerAgent.onnx",
             "reward": 0.0,
-            "creation_time": 1623872085.0763788,
+            "creation_time": 1623874344.1076722,
             "auxillary_file_paths": [
-                "results\\ppo\\PlayerAgent\\PlayerAgent-14400.pt"
+                "results\\ppo\\PlayerAgent\\PlayerAgent-11200.pt"
             ]
         }
     },
