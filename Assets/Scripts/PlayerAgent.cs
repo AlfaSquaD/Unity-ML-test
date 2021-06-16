@@ -11,8 +11,9 @@ public class PlayerAgent : Agent
     [SerializeField] private GameObject puck;
     [SerializeField] private Collider2D ownGoal;
     [SerializeField] private Collider2D enemyGoal;
-    [SerializeField] private Transform enemyTransform;
+    [SerializeField] private GameObject enemy;
     [SerializeField] private float agentSpeed;
+    private PlayerAgent enemyAgent;
     private PlayerMovement playerMovement;
     private PuckScript puckScript;
     private Vector2 startPos;
@@ -20,13 +21,14 @@ public class PlayerAgent : Agent
     public override void Initialize()
     {
         startPos = gameObject.transform.localPosition;
-        puckScript = puck.GetComponent<PuckScript>();
-        puckScript.setRandomPos();
+        puckScript = puck.GetComponent<PuckScript>();;
         playerMovement = gameObject.GetComponent<PlayerMovement>();
+        enemyAgent = enemy.GetComponent<PlayerAgent>();
     }
 
     public override void OnEpisodeBegin()
     {
+        puck.transform.localPosition = startPos;
         transform.localPosition = startPos;
         puckScript.setRandomPos();
     }
@@ -35,11 +37,12 @@ public class PlayerAgent : Agent
     {
         sensor.AddObservation(puck.transform.localPosition);
         sensor.AddObservation(gameObject.transform.localPosition);
-        sensor.AddObservation(enemyTransform.localPosition);
+        sensor.AddObservation(enemy.transform.localPosition);
     }
 
     public override void OnActionReceived(ActionBuffers actions)
     {
+        // Add punishment for absurd Values 
         float moveX = Mathf.Clamp01(actions.ContinuousActions[0]);
         float moveY = Mathf.Clamp01(actions.ContinuousActions[1]) * direction;
         Vector2 pos = transform.position;
@@ -55,6 +58,17 @@ public class PlayerAgent : Agent
         continousActions[1] = Input.GetAxis("Horizontal");
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("puck"))
+        {
+            SetReward(1f);
+            EndEpisode();
+            enemyAgent.SetReward(-1f);
+            enemyAgent.EndEpisode();
+        }
+    }
+
 
     public void halfAreaPunisment()
     {
@@ -66,5 +80,7 @@ public class PlayerAgent : Agent
         Debug.Log("Goalllll!!");
         SetReward(1f);
         EndEpisode();
+        enemyAgent.SetReward(-1f);
+        enemyAgent.EndEpisode();
     }
 }

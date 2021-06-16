@@ -3,28 +3,28 @@
         "elo": 1200.0,
         "checkpoints": [
             {
-                "steps": 20800,
-                "file_path": "results\\ppo\\PlayerAgent\\PlayerAgent-20800.onnx",
-                "reward": null,
-                "creation_time": 1623874796.5252516,
+                "steps": 1600,
+                "file_path": "results\\ppo\\PlayerAgent\\PlayerAgent-1600.onnx",
+                "reward": 0.0,
+                "creation_time": 1623876630.196243,
                 "auxillary_file_paths": [
-                    "results\\ppo\\PlayerAgent\\PlayerAgent-20800.pt"
+                    "results\\ppo\\PlayerAgent\\PlayerAgent-1600.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 20800,
+            "steps": 1600,
             "file_path": "results\\ppo\\PlayerAgent.onnx",
-            "reward": null,
-            "creation_time": 1623874796.5252516,
+            "reward": 0.0,
+            "creation_time": 1623876630.196243,
             "auxillary_file_paths": [
-                "results\\ppo\\PlayerAgent\\PlayerAgent-20800.pt"
+                "results\\ppo\\PlayerAgent\\PlayerAgent-1600.pt"
             ]
         }
     },
     "metadata": {
         "stats_format_version": "0.3.0",
         "mlagents_version": "0.27.0",
-        "torch_version": "1.8.1+cpu"
+        "torch_version": "1.9.0+cu111"
     }
 }
