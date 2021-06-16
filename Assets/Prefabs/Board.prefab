@@ -1022,7 +1022,7 @@ PrefabInstance:
       objectReference: {fileID: 3403587703177796322}
     - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: agentSpeed

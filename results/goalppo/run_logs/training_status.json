@@ -1,0 +1,66 @@
+{
+    "PlayerAgent": {
+        "checkpoints": [
+            {
+                "steps": 592782,
+                "file_path": "results\\goalppo\\PlayerAgent\\PlayerAgent-592782.onnx",
+                "reward": 0.0,
+                "creation_time": 1623866375.211791,
+                "auxillary_file_paths": [
+                    "results\\goalppo\\PlayerAgent\\PlayerAgent-592782.pt"
+                ]
+            },
+            {
+                "steps": 600782,
+                "file_path": "results\\goalppo\\PlayerAgent\\PlayerAgent-600782.onnx",
+                "reward": null,
+                "creation_time": 1623866654.2871656,
+                "auxillary_file_paths": [
+                    "results\\goalppo\\PlayerAgent\\PlayerAgent-600782.pt"
+                ]
+            },
+            {
+                "steps": 608782,
+                "file_path": "results\\goalppo\\PlayerAgent\\PlayerAgent-608782.onnx",
+                "reward": null,
+                "creation_time": 1623867039.8387847,
+                "auxillary_file_paths": [
+                    "results\\goalppo\\PlayerAgent\\PlayerAgent-608782.pt"
+                ]
+            },
+            {
+                "steps": 616782,
+                "file_path": "results\\goalppo\\PlayerAgent\\PlayerAgent-616782.onnx",
+                "reward": 0.0,
+                "creation_time": 1623867128.7415318,
+                "auxillary_file_paths": [
+                    "results\\goalppo\\PlayerAgent\\PlayerAgent-616782.pt"
+                ]
+            },
+            {
+                "steps": 623182,
+                "file_path": "results\\goalppo\\PlayerAgent\\PlayerAgent-623182.onnx",
+                "reward": 0.0,
+                "creation_time": 1623867511.0261724,
+                "auxillary_file_paths": [
+                    "results\\goalppo\\PlayerAgent\\PlayerAgent-623182.pt"
+                ]
+            }
+        ],
+        "elo": 1482.8070509834306,
+        "final_checkpoint": {
+            "steps": 623182,
+            "file_path": "results\\goalppo\\PlayerAgent.onnx",
+            "reward": 0.0,
+            "creation_time": 1623867511.0261724,
+            "auxillary_file_paths": [
+                "results\\goalppo\\PlayerAgent\\PlayerAgent-623182.pt"
+            ]
+        }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.27.0",
+        "torch_version": "1.9.0+cu111"
+    }
+}

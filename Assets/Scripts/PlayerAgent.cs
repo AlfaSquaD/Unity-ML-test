@@ -14,13 +14,15 @@ public class PlayerAgent : Agent
     [SerializeField] private Transform enemyTransform;
     [SerializeField] private float agentSpeed;
     private PlayerMovement playerMovement;
+    private PuckScript puckScript;
     private Vector2 startPos;
     private Vector2 puckStart;
 
     public override void Initialize()
     {
         startPos = gameObject.transform.localPosition;
-        puckStart = puck.transform.localPosition;
+        puckScript = puck.GetComponent<PuckScript>();
+        puckScript.setRandomPos();
         playerMovement = gameObject.GetComponent<PlayerMovement>();
     }
 
@@ -40,7 +42,7 @@ public class PlayerAgent : Agent
     public override void OnActionReceived(ActionBuffers actions)
     {
         float moveX = Mathf.Clamp01(actions.ContinuousActions[0]);
-        float moveY = Mathf.Clamp01(actions.ContinuousActions[1]);
+        float moveY = Mathf.Clamp01(actions.ContinuousActions[1]) * direction;
         Vector2 pos = transform.position;
         Vector2 nPos = pos + (new Vector2(moveX, moveY) * Time.deltaTime * (agentSpeed * Mathf.Clamp01(actions.ContinuousActions[2])));
         playerMovement.rb.MovePosition(nPos);
@@ -58,15 +60,6 @@ public class PlayerAgent : Agent
     public void halfAreaPunisment()
     {
         AddReward(0);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.collider.CompareTag("puck"))
-        {
-            SetReward(1f);
-            EndEpisode();
-        }
     }
 
     public void goalReward()
