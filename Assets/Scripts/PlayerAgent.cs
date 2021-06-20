@@ -47,9 +47,12 @@ public class PlayerAgent : Agent
 
     public override void OnActionReceived(ActionBuffers actions)
     {
-        // Add punishment for absurd Values 
-        float moveX = Mathf.Clamp01(actions.ContinuousActions[0]);
-        float moveY = Mathf.Clamp01(actions.ContinuousActions[1]) * direction;
+        // TODO: Ikiside dogruymus.
+        // Add punishment for absurd Values
+        //float moveX = (0.5f -Mathf.Clamp01(actions.ContinuousActions[0])) * 2;
+        //float moveY = (0.5f - Mathf.Clamp01(actions.ContinuousActions[1])) * 2;
+        float moveX = Mathf.Clamp(actions.ContinuousActions[0], -3f, 3f);
+        float moveY = Mathf.Clamp(actions.ContinuousActions[1], -3f, 3f);
         Vector2 pos = transform.position;
         Vector2 nPos = pos + (new Vector2(moveX, moveY) * Time.deltaTime * (agentSpeed * Mathf.Clamp01(actions.ContinuousActions[2])));
         playerMovement.rb.MovePosition(nPos);
@@ -97,8 +100,14 @@ public class PlayerAgent : Agent
     {
         Debug.Log("Goalllll!!");
         SetReward(1f);
-        enemyAgent.SetReward(-0.7f);
+        enemyAgent.SetReward(-1f);
         EndEpisode();
         enemyAgent.EndEpisode();
+    }
+
+    // TODO: Reset without
+    public void resetEnvironment()    
+    {
+
     }
 }
