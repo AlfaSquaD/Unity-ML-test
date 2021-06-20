@@ -17,9 +17,12 @@ public class PlayerAgent : Agent
     private PlayerMovement playerMovement;
     private PuckScript puckScript;
     private Vector2 startPos;
+    bool player = false;
+    bool playerEnemy = false;
 
     public override void Initialize()
     {
+    
         startPos = gameObject.transform.localPosition;
         puckScript = puck.GetComponent<PuckScript>();;
         playerMovement = gameObject.GetComponent<PlayerMovement>();
@@ -28,6 +31,8 @@ public class PlayerAgent : Agent
 
     public override void OnEpisodeBegin()
     {
+        player = false;
+        playerEnemy = false;
         puck.transform.localPosition = startPos;
         transform.localPosition = startPos;
         puckScript.setRandomPos();
@@ -48,6 +53,10 @@ public class PlayerAgent : Agent
         Vector2 pos = transform.position;
         Vector2 nPos = pos + (new Vector2(moveX, moveY) * Time.deltaTime * (agentSpeed * Mathf.Clamp01(actions.ContinuousActions[2])));
         playerMovement.rb.MovePosition(nPos);
+        if(this.StepCount > 800) 
+        {
+            AddReward(-0.0001f);
+        }
     }
 
 
@@ -62,25 +71,34 @@ public class PlayerAgent : Agent
     {
         if (collision.gameObject.CompareTag("puck"))
         {
-            SetReward(1f);
-            EndEpisode();
-            enemyAgent.SetReward(-1f);
-            enemyAgent.EndEpisode();
+            if (!player) 
+            {
+                AddReward(0.2f);
+                player = true;
+                playerEnemy = true;
+            }
+            else if (!playerEnemy)
+            {
+               
+                enemyAgent.AddReward(-0.2f);
+                player = true;
+                playerEnemy = true;
+            }
+            
         }
     }
 
-
-    public void halfAreaPunisment()
-    {
-        AddReward(0f);
-    }
+    //public void halfAreaPunisment()
+    //{
+    //    AddReward(0f);
+    //}
 
     public void goalReward()
     {
         Debug.Log("Goalllll!!");
         SetReward(1f);
+        enemyAgent.SetReward(-0.7f);
         EndEpisode();
-        enemyAgent.SetReward(-1f);
         enemyAgent.EndEpisode();
     }
 }
