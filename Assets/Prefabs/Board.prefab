@@ -769,7 +769,7 @@ PrefabInstance:
       objectReference: {fileID: 6582908484394730868}
     - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: MaxStep
-      value: 1000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: ownGoal
@@ -917,7 +917,7 @@ PrefabInstance:
       objectReference: {fileID: 1850452967360401875}
     - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: MaxStep
-      value: 1000
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2517348033225891000, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: ownGoal

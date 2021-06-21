@@ -13,6 +13,7 @@ public class PlayerAgent : Agent
     [SerializeField] private Collider2D enemyGoal;
     [SerializeField] private GameObject enemy;
     [SerializeField] private float agentSpeed;
+    private float timeCounter = 10;
     private PlayerAgent enemyAgent;
     private PlayerMovement playerMovement;
     private PuckScript puckScript;
@@ -36,6 +37,7 @@ public class PlayerAgent : Agent
         puck.transform.localPosition = startPos;
         transform.localPosition = startPos;
         puckScript.setRandomPos();
+        timeCounter = 10;
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -56,9 +58,14 @@ public class PlayerAgent : Agent
         Vector2 pos = transform.position;
         Vector2 nPos = pos + (new Vector2(moveX, moveY) * Time.deltaTime * (agentSpeed * Mathf.Clamp01(actions.ContinuousActions[2])));
         playerMovement.rb.MovePosition(nPos);
-        if(this.StepCount > 800) 
+        if(timeCounter > 0)
         {
-            AddReward(-0.0001f);
+            timeCounter -= Time.deltaTime;
+        }
+        else
+        {
+            Debug.Log("resetEnvironment called");
+            resetEnvironment();
         }
     }
 
@@ -82,8 +89,7 @@ public class PlayerAgent : Agent
             }
             else if (!playerEnemy)
             {
-               
-                enemyAgent.AddReward(-0.2f);
+                enemyAgent.AddReward(0.2f);
                 player = true;
                 playerEnemy = true;
             }
@@ -108,6 +114,11 @@ public class PlayerAgent : Agent
     // TODO: Reset without
     public void resetEnvironment()    
     {
-
+        player = false;
+        playerEnemy = false;
+        puck.transform.localPosition = startPos;
+        transform.localPosition = startPos;
+        puckScript.setRandomPos();
+        timeCounter = 10;
     }
 }
