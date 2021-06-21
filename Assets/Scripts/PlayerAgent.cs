@@ -19,7 +19,6 @@ public class PlayerAgent : Agent
     private PuckScript puckScript;
     private Vector2 startPos;
     bool player = false;
-    bool playerEnemy = false;
 
     public override void Initialize()
     {
@@ -33,7 +32,6 @@ public class PlayerAgent : Agent
     public override void OnEpisodeBegin()
     {
         player = false;
-        playerEnemy = false;
         puck.transform.localPosition = startPos;
         transform.localPosition = startPos;
         puckScript.setRandomPos();
@@ -58,13 +56,13 @@ public class PlayerAgent : Agent
         Vector2 pos = transform.position;
         Vector2 nPos = pos + (new Vector2(moveX, moveY) * Time.deltaTime * (agentSpeed * Mathf.Clamp01(actions.ContinuousActions[2])));
         playerMovement.rb.MovePosition(nPos);
-        if(timeCounter > 0)
+        AddReward(-0.0002f);
+        if (timeCounter > 0)
         {
             timeCounter -= Time.deltaTime;
         }
         else
         {
-            Debug.Log("resetEnvironment called");
             resetEnvironment();
         }
     }
@@ -86,18 +84,12 @@ public class PlayerAgent : Agent
                 AddReward(0.2f);
                 player = true;
             }
-            else if (!playerEnemy)
-            {
-                enemyAgent.AddReward(0.2f);
-                playerEnemy = true;
-            }
-            
         }
     }
 
     public void halfAreaPunisment()
     {
-        AddReward(-0.00001f);
+        AddReward(-0.0001f);
     }
 
     public void goalReward()
@@ -113,7 +105,6 @@ public class PlayerAgent : Agent
     public void resetEnvironment()    
     {
         player = false;
-        playerEnemy = false;
         puck.transform.localPosition = startPos;
         transform.localPosition = startPos;
         puckScript.setRandomPos();
