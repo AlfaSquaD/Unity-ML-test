@@ -64,14 +64,14 @@ public class PuckScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        //if (collision.Equals(P1PlayArea))
-        //{
-        //    p1Agent.halfAreaPunisment();
-        //}
-        //else if (collision.Equals(P2PlayArea))
-        //{
-        //    p2Agent.halfAreaPunisment();
-        //}
+        if (collision.Equals(P1PlayArea))
+        {
+            p1Agent.halfAreaPunisment();
+        }
+        else if (collision.Equals(P2PlayArea))
+        {
+            p2Agent.halfAreaPunisment();
+        }
     }
 
     public void setRandomPos()

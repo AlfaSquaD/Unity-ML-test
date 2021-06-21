@@ -85,22 +85,20 @@ public class PlayerAgent : Agent
             {
                 AddReward(0.2f);
                 player = true;
-                playerEnemy = true;
             }
             else if (!playerEnemy)
             {
                 enemyAgent.AddReward(0.2f);
-                player = true;
                 playerEnemy = true;
             }
             
         }
     }
 
-    //public void halfAreaPunisment()
-    //{
-    //    AddReward(0f);
-    //}
+    public void halfAreaPunisment()
+    {
+        AddReward(-0.00001f);
+    }
 
     public void goalReward()
     {

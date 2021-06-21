@@ -1,6 +1,6 @@
 {
     "PlayerAgent": {
-        "elo": 1200.5,
+        "elo": 1199.5014391117093,
         "checkpoints": [
             {
                 "steps": 96276,
@@ -10,15 +10,33 @@
                 "auxillary_file_paths": [
                     "results\\resetEnv2\\PlayerAgent\\PlayerAgent-96276.pt"
                 ]
+            },
+            {
+                "steps": 96276,
+                "file_path": "results\\resetEnv2\\PlayerAgent\\PlayerAgent-96276.onnx",
+                "reward": null,
+                "creation_time": 1624311236.207238,
+                "auxillary_file_paths": [
+                    "results\\resetEnv2\\PlayerAgent\\PlayerAgent-96276.pt"
+                ]
+            },
+            {
+                "steps": 223180,
+                "file_path": "results\\resetEnv2\\PlayerAgent\\PlayerAgent-223180.onnx",
+                "reward": null,
+                "creation_time": 1624311859.014519,
+                "auxillary_file_paths": [
+                    "results\\resetEnv2\\PlayerAgent\\PlayerAgent-223180.pt"
+                ]
             }
         ],
         "final_checkpoint": {
-            "steps": 96276,
+            "steps": 223180,
             "file_path": "results\\resetEnv2\\PlayerAgent.onnx",
             "reward": null,
-            "creation_time": 1624273105.0302527,
+            "creation_time": 1624311859.014519,
             "auxillary_file_paths": [
-                "results\\resetEnv2\\PlayerAgent\\PlayerAgent-96276.pt"
+                "results\\resetEnv2\\PlayerAgent\\PlayerAgent-223180.pt"
             ]
         }
     },
