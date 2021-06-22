@@ -54,11 +54,11 @@ public class PuckScript : MonoBehaviour
     {
         if (collision.Equals(P1Goal))
         {
-            p1Agent.goalReward();
+            p2Agent.goalReward();
         }
         else if (collision.Equals(P2Goal))
         {
-            p2Agent.goalReward();
+            p1Agent.goalReward();
         }
     }
 
