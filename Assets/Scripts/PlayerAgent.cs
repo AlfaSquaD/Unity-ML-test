@@ -13,7 +13,7 @@ public class PlayerAgent : Agent
     [SerializeField] private Collider2D enemyGoal;
     [SerializeField] private GameObject enemy;
     [SerializeField] private float agentSpeed;
-    private float timeCounter = 10;
+    private float timeCounter = 30;
     private PlayerAgent enemyAgent;
     private PlayerMovement playerMovement;
     private PuckScript puckScript;
@@ -35,7 +35,7 @@ public class PlayerAgent : Agent
         puck.transform.localPosition = startPos;
         transform.localPosition = startPos;
         puckScript.setRandomPos();
-        timeCounter = 10;
+        timeCounter = 30;
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -84,6 +84,8 @@ public class PlayerAgent : Agent
                 AddReward(0.2f);
                 player = true;
             }
+            timeCounter = 30;
+            enemyAgent.timeCounter = 30;
         }
     }
 
@@ -108,6 +110,6 @@ public class PlayerAgent : Agent
         puck.transform.localPosition = startPos;
         transform.localPosition = startPos;
         puckScript.setRandomPos();
-        timeCounter = 10;
+        timeCounter = 30;
     }
 }
