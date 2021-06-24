@@ -71,8 +71,9 @@ public class PlayerAgent : Agent
     public override void Heuristic(in ActionBuffers actionsOut)
     {
         ActionSegment<float> continousActions = actionsOut.ContinuousActions;
-        continousActions[0] = Input.GetAxis("Vertical");
-        continousActions[1] = Input.GetAxis("Horizontal");
+        continousActions[0] = Input.GetAxis("Horizontal");
+        continousActions[1] = Input.GetAxis("Vertical");
+        continousActions[2] = 1f;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
