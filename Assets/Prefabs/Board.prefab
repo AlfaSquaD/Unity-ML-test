@@ -160,6 +160,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DecisionPeriod: 5
   TakeActionsBetweenDecisions: 1
+--- !u!114 &1314588365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1850452967360401875}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2902496c0120472b90269f94a0aec7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Record: 1
+  NumStepsToRecord: 0
+  DemonstrationName: Master player
+  DemonstrationDirectory: demos
 --- !u!1 &2050638081855236936
 GameObject:
   m_ObjectHideFlags: 0
@@ -810,7 +826,7 @@ PrefabInstance:
     - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: babf206b2d0bc9345ae50852732d3861, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_BehaviorName
       value: PlayerAgent
@@ -958,7 +974,7 @@ PrefabInstance:
     - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_Model
       value: 
-      objectReference: {fileID: 5022602860645237092, guid: babf206b2d0bc9345ae50852732d3861, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 4560829018663614108, guid: 3853ba520672bae4eb3b4b2c43665c26, type: 3}
       propertyPath: m_InferenceDevice
       value: 1
