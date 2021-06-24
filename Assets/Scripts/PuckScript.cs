@@ -38,6 +38,14 @@ public class PuckScript : MonoBehaviour
                 rb.velocity = Vector2.Reflect(rb.velocity, collisions[0].GetContact(0).normal);
             else rb.velocity = Vector2.Reflect(rb.velocity, Vector2.up);        
         }
+        if (collision.Equals(P1PlayArea))
+        {
+            p1Agent.AddReward(0.0004f);
+        }
+        else if (collision.Equals(P2PlayArea))
+        {
+            p2Agent.AddReward(0.0004f);
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

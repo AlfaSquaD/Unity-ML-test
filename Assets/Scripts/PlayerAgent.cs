@@ -18,6 +18,7 @@ public class PlayerAgent : Agent
     private PlayerMovement playerMovement;
     private PuckScript puckScript;
     private Vector2 startPos;
+    private const float maxTime = 31;
     bool player = false;
 
     public override void Initialize()
@@ -35,7 +36,7 @@ public class PlayerAgent : Agent
         puck.transform.localPosition = startPos;
         transform.localPosition = startPos;
         puckScript.setRandomPos();
-        timeCounter = 30;
+        timeCounter = maxTime;
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -56,7 +57,7 @@ public class PlayerAgent : Agent
         Vector2 pos = transform.position;
         Vector2 nPos = pos + (new Vector2(moveX, moveY) * Time.deltaTime * (agentSpeed * Mathf.Clamp01(actions.ContinuousActions[2])));
         playerMovement.rb.MovePosition(nPos);
-        AddReward(-0.0002f);
+        AddReward(-0.00001f);
         if (timeCounter > 0)
         {
             timeCounter -= Time.deltaTime;
@@ -92,7 +93,7 @@ public class PlayerAgent : Agent
 
     public void halfAreaPunisment()
     {
-        AddReward(-0.0001f);
+        AddReward(-0.00002f * (maxTime-timeCounter));
     }
 
     public void goalReward()
@@ -111,6 +112,6 @@ public class PlayerAgent : Agent
         puck.transform.localPosition = startPos;
         transform.localPosition = startPos;
         puckScript.setRandomPos();
-        timeCounter = 30;
+        timeCounter = maxTime;
     }
 }
