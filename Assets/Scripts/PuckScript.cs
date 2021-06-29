@@ -40,11 +40,11 @@ public class PuckScript : MonoBehaviour
         }
         if (collision.Equals(P1PlayArea))
         {
-            p1Agent.AddReward(0.0004f);
+            p1Agent.AddReward(0.000005f);
         }
         else if (collision.Equals(P2PlayArea))
         {
-            p2Agent.AddReward(0.0004f);
+            p2Agent.AddReward(0.000005f);
         }
     }
 
